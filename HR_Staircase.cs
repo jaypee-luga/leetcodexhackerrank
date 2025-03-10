@@ -25,12 +25,12 @@ class Result
     {
         for(var y = 0; y < n; y++)
         {
-            for(var x = 0; x < n; x++)
+            for(var x = n - 1; x >= 0; x--)
             {
-                if(x < (n - (y + 1)))
-                    Console.Write(" ");
-                else
+                if(x <= y)
                     Console.Write("#");
+                else
+                    Console.Write(" ");
                 
             }
             Console.WriteLine();
