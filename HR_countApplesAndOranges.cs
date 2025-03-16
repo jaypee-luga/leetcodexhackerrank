@@ -39,8 +39,8 @@ class Result
             oranges[xo] += b;
         }
         
-        Console.WriteLine(apples.Where(apl => apl >= s).Count());
-        Console.WriteLine(oranges.Where(orng => orng <= t).Count());
+        Console.WriteLine(apples.Where(apl => apl >= s && apl <= t).Count());
+        Console.WriteLine(oranges.Where(orng => orng <= t && orng >= s).Count());
     }
 
 }
