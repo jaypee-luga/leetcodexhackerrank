@@ -1,25 +1,20 @@
 public class Solution {
     public int RemoveElement(int[] nums, int val) {
         
-        int previousIndex = 0;
-        int uniqueIndex = 0;
-        int uniqueNumCtr = 1;
+        int previousIndex = 0;        
+        int k = nums.Length;
         for (int currentIndex = 0; currentIndex < nums.Length; currentIndex++)
         {
-            if(nums.Length == 1)
-                return uniqueNumCtr;
+            if(nums.Length == 1) return 1;
             
-            if(nums[previousIndex] != nums[currentIndex])
+            if(nums[currentIndex] == val)
             {
-                previousIndex = currentIndex;
-                uniqueIndex++;
-                nums[uniqueIndex] = nums[currentIndex];
-                uniqueNumCtr++;
+                if(currentIndex != nums.Length - 1)
+                    nums[currentIndex] = nums[currentIndex + 1];                            
+
+                k--;
             }            
         }
-
-        return uniqueNumCtr;
-    }
-}
+        return k;
     }
 }
