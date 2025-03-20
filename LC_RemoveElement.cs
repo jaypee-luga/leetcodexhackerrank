@@ -1,20 +1,20 @@
 public class Solution {
     public int RemoveElement(int[] nums, int val) {
         
-        int previousIndex = 0;        
-        int k = nums.Length;
-        for (int currentIndex = 0; currentIndex < nums.Length; currentIndex++)
+        int overwritePosition = 0; 
+        for(int iterator = 0; iterator < nums.Length; iterator++)
         {
-            if(nums.Length == 1) return 1;
-            
-            if(nums[currentIndex] == val)
+            if(nums[iterator] == val)
+                continue;
+            else
             {
-                if(currentIndex != nums.Length - 1)
-                    nums[currentIndex] = nums[currentIndex + 1];                            
-
-                k--;
-            }            
+                nums[overwritePosition] = nums[iterator];
+                overwritePosition++;
+            }
         }
-        return k;
+
+        return overwritePosition;
+        
     }
+    
 }
