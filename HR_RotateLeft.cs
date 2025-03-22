@@ -28,9 +28,9 @@ class Result
     {
         var limit = arr.Count%d == 0 ? arr.Count - d : arr.Count;
         var shift = 0;
-        for(int i=0; i<arr.Count - d; i++)
+        for (int i = 0; i < limit; i++)
         {
-            if(i > d && limit%d != 0)	
+            if((i > d && limit%d != 0) || i + d >= arr.Count)	
                 shift = arr.Count-1;			
             else 
                 shift = i + d;
