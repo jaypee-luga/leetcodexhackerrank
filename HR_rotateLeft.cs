@@ -26,21 +26,19 @@ class Result
 
     public static List<int> rotateLeft(int d, List<int> arr)
     {
-        for(int i=0; i<d; i++)
+        var limit = arr.Count%d == 0 ? arr.Count - d : arr.Count;
+        var shift = 0;
+        for(int i=0; i<arr.Count - d; i++)
         {
-            var tmp = 0;
-            var j = 0;
-            for(j=0; j<arr.Count; j++)
-            {
-                if(j == 0) tmp = arr[j];
-                else
-                {
-                    arr[j-1] = arr[j];
-                }                
-            }
-            arr[j-1] = tmp;
+            if(i > d && limit%d != 0)	
+                shift = arr.Count-1;			
+            else 
+                shift = i + d;
+                
+            var tmp = arr[i];
+            arr[i] = arr[shift];
+            arr[shift] = tmp;
         }
-        
         return arr;
 
     }
